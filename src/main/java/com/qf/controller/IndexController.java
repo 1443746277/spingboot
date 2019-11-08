@@ -52,6 +52,7 @@ public class IndexController {
         System.out.println("aaaaa");
         System.out.println("胡宝进");
         System.out.println("反明坤");
+        System.out.println("cccccc");
         return "index";
     }
 
