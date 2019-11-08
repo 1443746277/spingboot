@@ -1,0 +1,50 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <script src="/jquery-3.4.1.js"></script>
+<script>
+    $(function(){
+        $(".btn").click(function(){
+            var delId =$(this).attr("data");
+            //alert(delId);
+            $.get("delete",{uid:delId},function(data){
+                if(data == 'success'){
+                    $("#"+delId).remove();
+                    alert("删除成功");
+                }else{
+                    alert("删除失败");
+                }
+            })
+        });
+    })
+</script>
+</head>
+<body>
+<a href="add">添加用户</a>
+<table>
+    <tr>
+        <th>id</th>
+        <th>用户名</th>
+        <th>操作1</th>
+        <th>操作2</th>
+    </tr>
+    <tr th:id="${l.uid}" th:each="l,var:${pageInfo.list}">
+        <th th:text="${l.uid}"></th>
+        <th th:text="${l.uname}"></th>
+        <th><a href="javascript:void(0)" class="btn" th:data="${l.uid}"   >删除</a></th>
+        <th><a th:href="@{updatePage(uid=${l.uid})}">修改</a> </th>
+    </tr>
+<a th:href="@{userlist(pageNum=1)}" th:text="首页"></a>
+<span th:if="${!pageInfo.hasPreviousPage}">上一页</span>
+<a th:if="${pageInfo.hasPreviousPage}" th:href="@{userlist(pageNum=${pageInfo.prePage})}" th:text="上一页"></a>
+<span th:each="i:${pageInfo.navigatepageNums}">
+    <a th:href="@{userlist(pageNum=${i})}" th:text="${i}"></a>
+</span>
+<a th:if="${pageInfo.hasNextPage}" th:href="@{userlist(pageNum=${pageInfo.nextPage})}" th:text="下一页"></a>
+<span th:if="${!pageInfo.hasNextPage}">下一页</span>
+<a th:href="@{userlist(pageNum=${pageInfo.lastPage})}" th:text="尾页"></a>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="update">
+    <input type="hidden" name="uid" th:value="${user.uid}" />
+    <input type="text" name="uname" th:value="${user.uname}"/>
+    <input type="submit" value="修改"/>
+</form>
+</body>
+</html>

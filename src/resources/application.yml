@@ -1,0 +1,31 @@
+#spring:
+###  mvc:
+###    view:
+###      prefix: /WEB-INF/
+###      suffix: .jsp
+#spring:
+#  freemarker:
+#    template-loader-path: /WEB-INF/
+#    suffix: .ftl
+#
+#
+#
+#spring:
+#  thymeleaf:
+#    prefix: /WEB-INF/
+#    suffix: .html
+#
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/class
+    username: root
+    password: sa
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+
+
+mybatis:
+  type-aliases-package: com.qf.pojo
+
+pagehelper:
+  helper-dialect: mysql
