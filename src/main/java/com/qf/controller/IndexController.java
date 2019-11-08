@@ -49,6 +49,7 @@ public class IndexController {
         List<User> userList = userService.getuserList();
         PageInfo<User> pageInfo = new PageInfo<User>(userList);
         model.addAttribute("pageInfo", pageInfo);
+        System.out.println("aaaaa");
         return "index";
     }
 
