@@ -105,6 +105,8 @@ public class IndexController {
         }
     }
 
+/*臧钰改了这一行*/
+
     @RequestMapping("loginPage")
     public String loginPage() {
         return "login";
