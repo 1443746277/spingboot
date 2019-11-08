@@ -50,6 +50,7 @@ public class IndexController {
         PageInfo<User> pageInfo = new PageInfo<User>(userList);
         model.addAttribute("pageInfo", pageInfo);
         System.out.println("aaaaa");
+        System.out.println("反明坤");
         return "index";
     }
 
